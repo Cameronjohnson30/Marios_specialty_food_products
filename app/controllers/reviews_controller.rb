@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.new(review_params)
     if @review.save
       flash[:notice] = "Review successfully added"
-      redirect_to projects_path(@product)
+      redirect_to product_path(@product)
     else
       render :new
     end

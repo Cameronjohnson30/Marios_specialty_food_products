@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit 
-    @product = Product..find(params[:product_id])
+    @product = Product.find(params[:product_id])
     @review = Review.find(params[:id])
     render :edit
   end
@@ -33,6 +33,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if @review.update(review_params)
       flash[:notice] = "Review successfully updated"
+      redirect_to  product_path(@review.product)
     else
       @product = Product.find(params[:product_id])
       render :edit

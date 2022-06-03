@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product succesfully added"
       redirect_to products_path
     else 
-      render :newend
+      render :new
     end
   end
 

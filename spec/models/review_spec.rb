@@ -1,4 +1,5 @@
 require 'rails_helper'
 
-describe Review doit { should belong_to(:product) }
+describe Review do
+  it { should belong_to(:product) }
 end

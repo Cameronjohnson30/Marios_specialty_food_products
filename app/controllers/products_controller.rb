@@ -44,11 +44,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     flash[:notice] = "Product successfully DESTROYED"
-    redirect_to projects_path
+    redirect_to product_path
   end
 
   private
-    def project_params
-      params.require(:project).permit(:name, :cost, :country_of_origin)
+    def product_params
+      params.require(:product).permit(:name, :cost, :country_of_orgin)
     end
 end 

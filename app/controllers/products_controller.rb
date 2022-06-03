@@ -49,6 +49,6 @@ class ProductsController < ApplicationController
 
   private
     def project_params
-      params.require(:project).permit(:name, :country_of_origin)
+      params.require(:project).permit(:name, :cost, :country_of_origin)
     end
 end 

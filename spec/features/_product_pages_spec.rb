@@ -11,7 +11,7 @@ require 'rails_helper'
       expect(page).to have_content 'Products'
     end
 
-    it "gives an error when no name is entered" do
+    it "gives an error when no name, cost, or origin is entered" do
       visit new_product_path
       click_on 'Create Product'
       expect(page).to have_content "Name can't be blank"

@@ -1,7 +1,31 @@
 <h1>Products</h1>
 
 <p><%= link_to "Add new product", new_product_path %></p>
+<h2>Three Most Recent Products</h3> 
+<ul>
+  <% @products.three_most_recent.each do |product| %>
+    <li><%= link_to product.name, product_path(product) %></li>
+  <% end %>
+</ul>
 
+<h3>USA Made Products</h3>
+<ul>
+<% @products.usa.each do |product| %>
+  <li><%= link_to product.name, product_path(product) %></li>
+<% end %>
+</ul>
+
+<h3>Most Reviewed Product</h3>
+<ul>
+<% @products.most_reviews.each do |product| %>
+  <li>
+    <%= link_to product.name, product_path(product) %></h3>
+  </li>
+</ul>
+<% end %>
+
+
+<h4>All Products</h4>
 <% if @products.any? %>
   <ul>
     <% @products.each do |product| %>

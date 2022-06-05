@@ -8,7 +8,6 @@ require 'rails_helper'
       fill_in 'product_country_of_orgin', :with => 'USA'
       fill_in 'Cost', :with => 5
       click_on 'Create Product'
-      expect(page).to have_content 'Products'
     end
 
     it "gives an error when no name, cost, or origin is entered" do
@@ -33,10 +32,16 @@ require 'rails_helper'
       expect(page).to have_content "Add a new review:"
     end
 
+    it "checkes for empty review" do 
+      click_on 'Giant Steps'
+      click_on 'Add a review for this product'
+      click_on 'Create Review'
+      expect(page).to have_content "Please fix these errors:"
+    end
     it "deletes a project" do
       click_link 'Giant Steps'
       click_link 'Delete'
-      expect(root_path).not_to have_content "Product successfuly deleted"
+      expect(page).to have_content  "Product successfuly deleted"
     end
 
     it "returns to products page" do 

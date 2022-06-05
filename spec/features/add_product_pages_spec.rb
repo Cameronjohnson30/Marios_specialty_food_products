@@ -17,6 +17,7 @@ require 'rails_helper'
       expect(page).to have_content "Name can't be blank"
     end
 
+
     it "edits a projects name orgin and price" do
       click_on 'Giant Steps'
       click_on 'Edit'
@@ -26,4 +27,16 @@ require 'rails_helper'
       click_on 'Update Product'
       expect(page).to have_content "Giant"
   end
+
+  it "creates a new review" do 
+    click_on 'Giant Steps'
+    click_on 'Add a review for this product'
+    expect(page).to have_content "Add a new review:"
+  end
+
+    it "deletes a project" do
+      click_link 'Giant Steps'
+      click_link 'Delete'
+      expect(root_path).not_to have_content "Product successfuly deleted"
+    end
 end

@@ -9,9 +9,30 @@ require 'rails_helper'
       fill_in 'Cost', :with => 5
       click_on 'Create Product'
       click_link 'Giant Steps'
-      expect(page).to have_content 'Review'
+      click_on 'Add a review for this product' 
+      fill_in 'review_author', :with => 'cameron'
+      fill_in 'Content body', :with => 'a bunch of nonsense tired of typing getting closer to being done aaaaahhhhhhh yeahhhhh'
+      fill_in 'Rating', :with => 5
+      click_on 'Create Review'
+      click_link 'Cameron'
     end
 
     it "Edits a review" do
-      
+      click_link 'Edit review'
+      fill_in 'Author', :with => 'cameron is amazing'
+      fill_in 'Content body', :with => 'a bunch of nonsense tired of typing getting closer to being done aaaaahhhhhhh yeahhhhh'
+      fill_in 'Rating', :with => 5
+      click_on 'Update Review'
+      expect(page).to have_content 'Cameron Is Amazing'
+    end
+
+    it "Deletes a review" do 
+      click_link 'Delete review'
+      expect(page).to have_content 'Review successfully deleted'
+    end
+
+    it "Returns to the product page" do
+      click_link 'Return to product'
+    expect(page).to have_content 'Here are the reviews for this product:'
   end
+end

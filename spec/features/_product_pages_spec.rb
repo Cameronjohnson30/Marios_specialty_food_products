@@ -1,7 +1,7 @@
 require 'rails_helper'
 
   describe "the add a product process" do
-  before :each do
+    before :each do
       visit products_path
       click_link 'Add new product'
       fill_in 'Name', :with => 'Giant Steps'
@@ -17,7 +17,6 @@ require 'rails_helper'
       expect(page).to have_content "Name can't be blank"
     end
 
-
     it "edits a projects name orgin and price" do
       click_on 'Giant Steps'
       click_on 'Edit'
@@ -26,13 +25,13 @@ require 'rails_helper'
       fill_in 'Cost', :with => 666
       click_on 'Update Product'
       expect(page).to have_content "Giant"
-  end
+    end
 
-  it "creates a new review" do 
-    click_on 'Giant Steps'
-    click_on 'Add a review for this product'
-    expect(page).to have_content "Add a new review:"
-  end
+    it "creates a new review" do 
+      click_on 'Giant Steps'
+      click_on 'Add a review for this product'
+      expect(page).to have_content "Add a new review:"
+    end
 
     it "deletes a project" do
       click_link 'Giant Steps'

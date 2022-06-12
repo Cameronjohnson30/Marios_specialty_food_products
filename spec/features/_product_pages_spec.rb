@@ -38,6 +38,13 @@ require 'rails_helper'
       expect(page).to have_content "Products"
     end
 
+    it "Returns to product page from create a review" do 
+      click_link 'Giant Steps'
+      click_link 'Add a review for this product'
+      click_link 'Return to product'
+      expect(page).to have_content "Giant Steps"
+    end
+
     it "Returns to product page from edit product page" do
       click_link 'Giant Steps'
       click_link 'Edit'
@@ -45,13 +52,6 @@ require 'rails_helper'
       expect(page).to have_content "Giant Steps"
     end
 
-    it "Returns to product page from create a review" do 
-      click_link 'Giant Steps'
-      click_link 'Add a review for this product'
-      click_link 'Return to product'
-      expect(page).to have_content "Giant Steps"
-    end
-    
     it "checks for empty review" do 
       click_link 'Giant Steps'
       click_on 'Add a review for this product'

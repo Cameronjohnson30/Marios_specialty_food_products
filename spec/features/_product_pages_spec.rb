@@ -37,4 +37,25 @@ require 'rails_helper'
       click_link 'Return to products'
       expect(page).to have_content "Products"
     end
+
+    it "Returns to product page from edit product page" do
+      click_link 'Giant Steps'
+      click_link 'Edit'
+      click_link 'Return to product'
+      expect(page).to have_content "Giant Steps"
+    end
+
+    it "Returns to product page from create a review" do 
+      click_link 'Giant Steps'
+      click_link 'Add a review for this product'
+      click_link 'Return to product'
+      expect(page).to have_content "Giant Steps"
+    end
+    
+    it "checks for empty review" do 
+      click_link 'Giant Steps'
+      click_on 'Add a review for this product'
+      click_on 'Create Review'
+      expect(page).to have_content "Please fix these errors:"
+    end
 end

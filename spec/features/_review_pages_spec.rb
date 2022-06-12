@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-  describe "the add a product process" do
+  describe "the add a review process" do
   before :each do
       visit products_path
       click_link 'Add new product'
@@ -24,6 +24,12 @@ require 'rails_helper'
       fill_in 'Rating', :with => 5
       click_on 'Update Review'
       expect(page).to have_content 'Cameron Is Amazing'
+    end
+
+    it "Returns to the product page from edit review page" do
+      click_link 'Edit review'
+      click_link 'Return to product'
+      expect(page).to have_content 'Add a review for this product'
     end
 
     it "Deletes a review" do 

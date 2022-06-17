@@ -7,7 +7,7 @@ describe 'landing page' do
   end
 
   it 'Returns from products page to landing' do 
-    click_link 'Return to Home'
+    click_link 'Home'
     expect(page).to have_content 'Marios Specialty Food Products'
   end
 
@@ -33,7 +33,7 @@ describe 'landing page' do
     fill_in 'Rating', :with => 5
     click_on 'Create Review'
     click_link 'Return to products'
-    click_link 'Return to Home'
+    click_link 'Home'
     expect(page).to have_content 'Giant Steps'
   end
 end   

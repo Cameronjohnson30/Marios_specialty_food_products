@@ -2,6 +2,15 @@ require 'rails_helper'
 
   describe "the add a product process" do
     before :each do
+      visit root_path
+      click_link 'Sign-Up'
+      fill_in 'user_email', with: 'useremail@aol.com'
+      fill_in 'user_password', with: 'password'
+      fill_in 'user_password_confirmation', with: 'password'
+      click_button 'Sign up'
+      @user = User.last
+      @user.update(admin: true)
+      visit new_product_path
       visit products_path
       click_link 'Add new product'    
       fill_in 'Name', :with => 'Giant Steps'
@@ -58,4 +67,4 @@ require 'rails_helper'
       click_on 'Create Review'
       expect(page).to have_content "Please fix these errors:"
     end
-end
+  end

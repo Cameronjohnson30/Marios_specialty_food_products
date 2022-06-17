@@ -12,11 +12,20 @@ describe 'landing page' do
   end
 
   it 'Fills out  the scopes be on the landing page' do 
-    click_link 'Add new product'
+    visit root_path
+    click_link 'Sign-Up'
+    fill_in 'user_email', with: 'useremail@aol.com'
+    fill_in 'user_password', with: 'password'
+    fill_in 'user_password_confirmation', with: 'password'
+    click_button 'Sign up'
+    @user = User.last
+    @user.update(admin: true)
+    click_link 'See product list'
+    click_link 'Add new product'    
     fill_in 'Name', :with => 'Giant Steps'
     fill_in 'product_country_of_orgin', :with => "United States of America"
     fill_in 'Cost', :with => 5
-    click_on 'Create Product'
+    click_button 'Create Product'
     click_link 'Giant Steps'
     click_on 'Add a review for this product' 
     fill_in 'review_author', :with => 'cameron'

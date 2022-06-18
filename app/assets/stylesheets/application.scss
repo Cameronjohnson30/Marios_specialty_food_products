@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navi_bar {
+  float: right;
+  padding-right: 2%;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 5%;
+  font-family:Georgia, 'Times New Roman', Times, serif 
+}

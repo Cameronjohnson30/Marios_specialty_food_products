@@ -14,12 +14,13 @@
 <% else %>
   <p>No reviews yet for this product.</p>
 <% end %>
-
+<% if current_user || is_admin? %>
 <p><%= link_to "Add a review for this product", new_product_review_path(@product) %></p>
-
+<% end %>
+<% if is_admin? %>
 <p><%= link_to "Edit", edit_product_path(@product) %></p>
 <p><%= link_to "Delete", product_path(@product),
                         :data => {:confirm => "You sure?",
                                     :method => "delete"} %></p>
-
+<% end %>
 <p><%= link_to "Return to products", products_path %></p>

@@ -1,5 +1,8 @@
 <h1>Products</h1>
+
+<% if is_admin? %>
 <p><%= link_to "Add new product", new_product_path %></p>
+<% end %>
 
 <h4>All Products</h4>
 <% if @products.any? %>

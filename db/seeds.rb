@@ -1,5 +1,9 @@
 Product.destroy_all
 Review.destroy_all
+User.destroy_all
+
+admin = User.create(:email => 'Admin@aol.com', :password => 'Password', :admin => true)
+user = User.create(:email => 'User@aol.com', :password => 'Password')
 
 50.times do
   product = Product.create(
@@ -7,6 +11,7 @@ Review.destroy_all
     cost: Faker::Number.decimal(l_digits: 2),
     country_of_orgin: Faker::Address.country
   )
+
   5.times do 
     Review.create!(
       author: Faker::JapaneseMedia::Naruto.character,

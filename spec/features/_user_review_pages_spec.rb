@@ -19,7 +19,6 @@ describe 'test for user creating review' do
   end
 
   it "Returns to the product page" do 
-    save_and_open_page
     click_link 'Cameron'
     click_link 'Return to product'
     expect(page).to have_content 'Here are the reviews for this product:'

@@ -1,20 +1,22 @@
-<h2>Super awesome company that is a local mom and pop owned that serves the community definetly not fake</h2>
-  
+<div class="scopes"  
+<h1>Super awesome company that is a local mom and pop owned that serves the community</h1>
 <p><%= link_to "See product list", products_path %></p>
-
-  <h2>Three Most Recent Products</h3> 
-<ul>
-  <% @products.three_most_recent.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
-  <% end %>
-</ul>
-
+  <h2>Three Most Recent Products</h2> 
+    <ul>
+      <% @products.three_most_recent.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+    </ul>
 <h3>USA Made Products</h3>
-<ul>
+    <% if @products.usa.any? %>
 <% @products.usa.each do |product| %>
-  <li><%= link_to product.name, product_path(product) %></li>
+  <ul>
+    <li><%= link_to product.name, product_path(product) %></li>
+  </ul>
 <% end %>
-</ul>
+<% else %>
+<p>No USA Made Products</p>
+<% end %>
 
 <h3>Most Reviewed Product</h3>
 <ul>
@@ -24,3 +26,4 @@
   </li>
 </ul>
 <% end %>
+</div>

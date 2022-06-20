@@ -4,12 +4,13 @@
     <title>RailsMariosSpecialty</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=devise-width, initial-scale=1">
   </head>
+
   <body>
+  
   <%= flash[:alert] %>
   <%= flash[:notice] %>
   
@@ -27,11 +28,23 @@
     <h6><%= link_to "Home", root_path %></h6>
   </header>
 
-  <header class="title"> 
+    <div class = "logo">
+    <%= image_tag("logo/logo.png") %>
+    </div>
+
+  <div class="title"> 
   <h1>Marios Specialty Food Products</h1>
-  </header>
-  
-  <%= yield %>
+  </div>
+
+    <div class= "pics">
+    <%= image_tag("background/food_1.jpg", {:style => "width:295px;"}) %>
+    <%= image_tag("background/food_3.jpg", {:style => "width:355px;"}) %>
+    <%= image_tag("background/food_2.jpg", {:style => "width:360px;"}) %>
+    <%= image_tag("background/food_5.jpg", {:style => "width:240px;"}) %>
+    <%= image_tag("background/food_6.jpg", {:style => "width:300px;"}) %>
+    </div>
+
+    <%= yield %>
 
   </body>
 </html>
